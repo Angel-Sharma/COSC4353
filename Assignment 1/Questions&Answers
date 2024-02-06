@@ -30,9 +30,11 @@ Meaning we do
         - Fuel Quote Form with Pricing module (Once user enters all required information pricing module calculates the rate provides total cost)
         - Fuel Quote History
 I also think we should use HTML,JS,CSS,React for front end, something for backend?, something as database?
-im familar with post gres SQL for backend if thats needed and im sure we can figure out something in python for the backend portion/
-
-}
+im familar with postgreSQL for backend if thats needed and im sure we can figure out something for the backend portion}
 2. Discuss what development methodology you will use and why? (2 points)
+Suryansh Sharma{
+    I think we should use the Agile development methodology because its a lot more common in the industry,
+    its also meant for projects like this because we can easily split up step in the software component requirements list into 1 or more stories based on their difficulty and tackle issues in each component as they arise. We could also make a story on issues in compoenents interactin with each other if it comes to that.
+}
 3. Provide high level design / architecture of your solution that you are proposing? (6 points)
 
