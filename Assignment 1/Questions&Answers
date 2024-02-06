@@ -18,5 +18,21 @@ Software must include following components:
 Answer these questions:
 
 1. Discuss your initial thoughts in details on how you will design this application? (2 points)
+
+Suryansh Sharma{
+I think we should design this based on easist/ fastest.
+Meaning we do
+    1st: Set up base page to build modules off of aka index.js
+    2nd: Login Page
+    3rd: Registration Page
+    4th: Profile Management Page
+    5th: The last two should be further split up into smaller parts when we get to them so they can be tackled properly
+        - Fuel Quote Form with Pricing module (Once user enters all required information pricing module calculates the rate provides total cost)
+        - Fuel Quote History
+I also think we should use HTML,JS,CSS,React for front end, something for backend?, something as database?
+im familar with post gres SQL for backend if thats needed and im sure we can figure out something in python for the backend portion/
+
+}
 2. Discuss what development methodology you will use and why? (2 points)
 3. Provide high level design / architecture of your solution that you are proposing? (6 points)
+
