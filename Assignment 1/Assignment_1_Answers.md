@@ -49,6 +49,9 @@ After we have a functional testing platform for implementing features both on th
 - Input Form
 - Output / History
 
+#### Benjamin Mogeni
+
+My initial strategy would be to approach the problem from a user centered viewpoint and build from there. Break down the application into core components for the front end and backend and based upon the teams technical experience we divide tasks as neeeded. For the architecture I believe a React based frontend with Node.js backend and sql fdor the database. This will be open to evolution of course as the project develops and more precise tools are neeeded. I agree with Suryansh on the order of development as going from easiest to hardest will allow for the team to get used to the tech stack and learn as we build.
 ### 2. Discuss what development methodology you will use and why? (2 points)
 
 #### Suryansh Sharma
@@ -59,6 +62,9 @@ its also meant for projects like this because we can easily split up step in the
 #### Ryan Ball
 
 I agree Agile will be a great approach. Many hands will be woring simulataneously on the same project and splitting it into multiple smaller modules would be beneificial to have speedier turnaround on the project.
+
+#### Benjamin Mogeni
+I also agree on Agile as the development and flexibilty needed for this project would greatly ebnefit. I believe we can also take from some DevOps methodolgies as well in our workflows to keep up our efficicency in regards to deployment. A couple key features to take would be focus on continious integration, automated testing, and rapid delivery. A harmonious combination can positively impact the rate of development and quality as well.
 
 ### 3. Provide high level design / architecture of your solution that you are proposing? (6 points)
 
