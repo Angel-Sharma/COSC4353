@@ -108,3 +108,6 @@ I think having a mix of the Waterfall method and the Agile method would be best.
 **Additional notes**
 
 These models are relatively simple to be represented in any SQL database. CRUD can also be easily performed due to their simplicity
+
+#### Suryansh Sharma
+I like this architecture / high level design so i'll include a UML drawing in the folder based off it.
