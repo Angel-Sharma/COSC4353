@@ -111,3 +111,11 @@ These models are relatively simple to be represented in any SQL database. CRUD c
 
 #### Suryansh Sharma
 I like this architecture / high level design so i'll include a UML drawing in the folder based off it.
+
+
+### 4. IMPORTANT: list who did what within the group. TAs should be able to validate in GitHub, otherwise team members who didn't contribute will receive a ZERO.
+1. Suryansh Sharma: Answered Questions
+2. Ryan Ball: Answered Questions
+3. Benjamin Mogeni: Answered Questions
+4. Abhinav Krothapalli: Answered Questions
+
