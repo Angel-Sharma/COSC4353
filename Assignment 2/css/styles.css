@@ -1,0 +1,55 @@
+@import url("form.css");
+@import url("navbar.css");
+@import url("table.css");
+
+/* Global settings for all selectors. */
+.page-container {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header,
+.app-footer {
+  text-align: center;
+  padding: 10px;
+  color: white;
+  background-color: #454545;
+  border: solid 2px black;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+/* Used to control the panels for the User Homepage. */
+.panel-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.left-pane,
+.right-pane {
+  flex: 1;
+  padding: 20px;
+  border: solid 2px black;
+}
+
+.left-pane {
+  margin-left: 5%;
+  margin-right: 2%;
+  background-color: lightgray;
+}
+
+.right-pane {
+  margin-right: 5%;
+  background-color: white;
+}

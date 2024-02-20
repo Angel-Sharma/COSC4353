@@ -1,0 +1,38 @@
+.app-navbar ul {
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+
+  /* Centers the content on the bar. */
+  justify-content: center;
+  align-items: center;
+}
+
+.app-navbar li {
+  font-size: 20px;
+  color: white;
+  padding: 10px 20px; /* Spacing between items. */
+  margin-right: 10px;
+}
+
+.app-navbar a {
+  color: white;
+  text-decoration: none; /* Removes underline from links. */
+}
+
+.app-navbar a:hover {
+  font-weight: bold;
+  padding: 10px 20px;
+  border: solid 2px black;
+  background-color: darkgray;
+}
+
+/* Keeps visited links consistent. */
+.app-navbar a:visited {
+  color: white;
+}
+
+/* Removes margin from last link for proper centering. */
+.app-navbar li:last-child {
+  margin-right: 0;
+}
