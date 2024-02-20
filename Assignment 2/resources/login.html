@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Login</title>
+  </head>
+
+  <body id="login-body" class="app-body">
+    <div class="page-container">
+      <header class="app-header">
+        <!-- NOTE: Need to update from relative paths to endpoints. -->
+        <nav class="app-navbar">
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./register.html">Register</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="content">
+        <h1>Account Login</h1>
+
+        <!-- Login Form-->
+        <form id="login-form" class="app-form" action="/login" method="post">
+          <div class="form-fields">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+            <br />
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+            <br />
+          </div>
+
+          <!-- Submit button.-->
+          <div class="form-submit">
+            <input
+              type="submit"
+              id="login-button"
+              name="login-button"
+              value="Login"
+            />
+          </div>
+
+          <!-- NOTE: Need to update from relative paths to endpoints. -->
+          <p class="form-caption">
+            Not a member? <a href="./register.html">Register now!</a>
+          </p>
+        </form>
+      </main>
+
+      <footer class="app-footer">Group 8 - COSC4353-12771</footer>
+    </div>
+  </body>
+</html>

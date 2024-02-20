@@ -1,0 +1,45 @@
+.app-form {
+  font-size: 16px;
+  background-color: #eee;
+  text-align: left;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.app-form .form-caption {
+  margin-top: 20px;
+}
+
+/* Keeps a consistent style for all inputs we're using. */
+.app-form input[type="text"],
+.app-form input[type="password"],
+.app-form input[type="number"],
+.app-form input[type="date"] {
+  box-sizing: border-box;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.app-form input[type="submit"] {
+  color: white;
+  background-color: #454545;
+
+  display: block;
+  padding: 15px;
+  margin: 10px 0;
+  width: 250px;
+
+  text-align: center;
+  border: solid 1px black;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.app-form input[type="submit"]:hover {
+  background-color: #222222;
+}

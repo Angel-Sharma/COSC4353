@@ -1,0 +1,24 @@
+.app-table {
+  font-size: 16px;
+  background-color: lightgray;
+  width: 80%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+.app-table th,
+.app-table td {
+  text-align: left;
+  padding: 10px;
+  border: solid 1px #454545;
+}
+
+.app-table th {
+  background-color: #454545;
+  color: white;
+  cursor: pointer;
+}
+
+.app-table tbody tr:hover {
+  background-color: darkgray;
+}
