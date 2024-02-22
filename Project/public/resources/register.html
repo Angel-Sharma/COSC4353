@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Register Account</title>
+  </head>
+
+  <body id="register-body" class="app-body">
+    <div class="page-container">
+      <header class="app-header">
+        <!-- NOTE: Need to change from relative to endpoint. -->
+        <nav class="app-navbar">
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./login.html">Login</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="content">
+        <h1>Account Registration</h1>
+
+        <!-- Register Form - validated in HTML below-->
+        <form
+          id="register-form"
+          class="app-form"
+          action="/register"
+          method="post"
+        >
+          <div class="form-fields">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+            <br />
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+            <br />
+          </div>
+
+          <!-- Submit button.-->
+          <div class="form-submit">
+            <input
+              type="submit"
+              id="register-button"
+              name="register-button"
+              value="Register"
+            />
+          </div>
+
+          <!-- NOTE: Need to change from relative to endpoint. -->
+          <p class="form-caption">
+            Already a member? <a href="./login.html">Login now!</a>
+          </p>
+        </form>
+      </main>
+
+      <footer class="app-footer">Group 8 - COSC4353-12771</footer>
+    </div>
+  </body>
+</html>

@@ -41,6 +41,11 @@ Our design and development has not changed we are still using the Agile method b
 3. List what front end technologies you are using and why. List who is responsible of doing what in your group? (2 points)
 
 ### Group 8:
-We are using Html, CSS and Javscript and maybe Nodejs, express, postgresql
+We are using Html, CSS and Javscript, Nodejs, express, postgresql
 
 4. Provide screen shots of your front end, each page? (5 points)
+
+5. Contributions / who did what
+
+### Suryansh Sharma
+looked into how we will accomplish the next step of the project and what type of framwork we should use to further integrate the HTML and CSS with the backend which is probably the next part, redid registration form and validation.

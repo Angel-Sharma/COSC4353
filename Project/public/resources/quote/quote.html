@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <title>Quote - Create</title>
+
+  </head>
+
+  <body id="quote-body" class="app-body">
+    <div class="page-container">
+      <header class="app-header">
+        <!-- NOTE: Need to update from relative paths to endpoints. -->
+        <nav class="app-navbar">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../user/user.html">Profile</a></li>
+            <li><a href="../user/update.html">Update Profile</a></li>
+            <li><a href="./quote.html">Create Quote</a></li>
+            <li><a href="./history.html">Quote History</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Include outline of project here?-->
+      <main class="content">
+        <h1>Create a Fuel Quote</h1>
+
+        <!-- Create Quote Form, pressing submit sends POST to /quote -->
+        <form
+          id="create-quote-form"
+          class="app-form"
+          action="/quote"
+          method="post"
+        >
+          <div class="form-fields">
+            <label for="gallons">Gallons Requested:</label>
+            <input type="number" id="gallons" name="galons" min="0.0" />
+            <br />
+
+            <!-- This is populated by the application and cannot be modified. -->
+            <label for="delivery-address">Delivery Address:</label>
+            <input
+              type="text"
+              id="delivery-address"
+              name="delivery-address"
+              width="100"
+              maxlength="100"
+              value="COMES FROM PROFILE"
+              disabled="disabled"
+            />
+            <br />
+
+            <label for="delivery-date">Delivery Date:</label>
+            <input
+              type="date"
+              id="delivery-date"
+              name="delivery-date"
+              width="100"
+            />
+            <br />
+
+            <!-- This is populated by the application and cannot be modified. -->
+            <label for="price">Suggested Price:</label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value="0.0"
+              disabled="disabled"
+            />
+            <br />
+
+            <!-- This is populated by the application and cannot be modified. -->
+            <label for="amount-due">Total Amount Due:</label>
+            <input
+              type="number"
+              id="amount-due"
+              name="amount-due"
+              value="0.0"
+              disabled="disabled"
+            />
+            <br />
+          </div>
+
+          <div class="form-submit">
+            <input
+              type="submit"
+              id="create-button"
+              name="create-button"
+              value="Finalize Quote"
+            />
+          </div>
+        </form>
+      </main>
+
+      <footer class="app-footer">Group 8 - COSC4353-12771</footer>
+    </div>
+  </body>
+</html>

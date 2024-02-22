@@ -4,49 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="../css/styles.css" />
+    <script src = "loginVal.js"></script>
     <title>Login</title>
   </head>
-  <script defer>
-    // This is the form validator for this form
-    function validateLoginForm() {
-        var username = document.getElementById("username").value.trim();
-        var password = document.getElementById("password").value.trim();
-        var isValid = true;
-        var usernameError = document.getElementById("usernameError");
-        var passwordError = document.getElementById("passwordError");
-
-
-        usernameError.textContent = "";
-        passwordError.textContent = "";
-
-        // Validate username
-        if (username === "") {
-        isValid = false;
-        usernameError.textContent = "Username is required";
-        }
-          // Validate password
-        if (password === "") {
-          isValid = false;
-          passwordError.textContent = "Password is required";
-        }
-
-        return isValid;
-      }
-      function handleFormSubmission(event) {
-        // Prevent default form submission
-        event.preventDefault();
-
-        // Validate form
-        var isValidForm = validateLoginForm();
-
-        // If form is valid, redirect to another page
-        if (isValidForm) {
-          window.location.href = "user/user.html";
-        }
-      }
-
-      document.getElementById("login-form").addEventListener("submit", handleFormSubmission);
-  </script>
 
   <body id="login-body" class="app-body">
     <div class="page-container">
@@ -95,6 +55,7 @@
           </p>
         </form>
       </main>
+
 
       <footer class="app-footer">Group 8 - COSC4353-12771</footer>
     </div>
