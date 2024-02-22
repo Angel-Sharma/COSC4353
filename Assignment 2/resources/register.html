@@ -6,7 +6,34 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <title>Register Account</title>
   </head>
+  <script>
+    // This is the form validator for this form
+    function validateLoginForm() {
+        var username = document.getElementById("username").value.trim();
+        var password = document.getElementById("password").value.trim();
+        var isValid = true;
 
+        // Validate username
+        if (username === "") {
+          isValid = false;
+          document.getElementById("usernameError").innerText = "Username is required";
+        } else {
+          document.getElementById("usernameError").innerText = "";
+        }
+
+        // Validate password
+        if (password === "") {
+          isValid = false;
+          document.getElementById("passwordError").innerText = "Password is required";
+        } else {
+          document.getElementById("passwordError").innerText = "";
+        }
+
+        return isValid;
+      }
+
+  </script>
+  
   <body id="register-body" class="app-body">
     <div class="page-container">
       <header class="app-header">
