@@ -52,7 +52,7 @@ looked into how we will accomplish the next step of the project and what type of
 I built out the original HTML pages and file-structure with relative pathing, this will have to be move to use endpoints once there is a backend to process the HTTP requests. Originally I implemented very basic input validation that was later expanded on by other teammates. I also contributed to the styling using CSS that was later expanded on by others to look infinitely better than my original implementation.
 
 #### Benjamin 
-Assisted in streamlinign the selection of the front end technologies.
+Assisted in streamlining the selection of the front end technologies. Creating the dummy data for user profile.
 
 #### Abhinav Krothapalli
 

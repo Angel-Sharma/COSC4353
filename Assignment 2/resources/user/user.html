@@ -29,12 +29,64 @@
 
         <div class="panel-container">
           <div id="user-left-pane" class="left-pane">
-            <h2>Placeholder Title</h2>
+            <h2>Last Requested Quotes</h2>
             <p>Snapshot of quotes requested?</p>
+              <table id="history-table" class="app-table">
+                  <thead>
+                  <tr>
+                      <th>Gallons</th>
+                      <th>Delivery Address</th>
+                      <th>Delivery Date</th>
+                      <th>Price per Gallon</th>
+                      <th>Amount Due</th>
+                  </tr>
+                  </thead>
+
+                  <!-- Populated by the application. -->
+                  <tbody>
+                  <tr>
+                      <td>100</td>
+                      <td>4434 University Drive Houston, TX 77204</td>
+                      <td>2024-02-19</td>
+                      <td>$3.00</td>
+                      <td>$300.00</td>
+                  </tr>
+                  </tbody>
+              </table>
+
           </div>
           <div id="user-right-pane" class="right-pane">
-            <h2>Placeholder Title</h2>
-            <p>Place user profile data here?</p>
+            <h2>User Profile</h2>
+            <table id="user-table" class="app-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th> Zipcode</th>
+                  <th>City</th>
+                  <th>State</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td>
+                        Jefferson Peters
+                    </td>
+                    <td>
+                        3000 Mlk Avenue
+                    </td>
+                    <td>
+                        77777
+                    </td>
+                    <td>
+                        Houston
+                    </td>
+                    <td>
+                        Texas
+                    </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </main>
