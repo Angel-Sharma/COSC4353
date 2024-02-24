@@ -53,3 +53,7 @@ I built out the original HTML pages and file-structure with relative pathing, th
 
 #### Benjamin 
 Assisted in streamlinign the selection of the front end technologies.
+
+#### Abhinav Krothapalli
+
+I helped implement the state dropdown box in the profile update menu. After that, I did some work on the CSS files by adding colors, backgrounds, adjusting fonts and text boxes, and other small details to help the overall aesthetic of the project.
