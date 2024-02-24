@@ -1,12 +1,14 @@
 .app-form {
   font-size: 16px;
-  background-color: #eee;
+  background: transparent;
   text-align: left;
   margin: 20px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   border-radius: 5px;
   width: 300px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px black;
 }
 
 .app-form .form-caption {
@@ -18,17 +20,18 @@
 .app-form input[type="password"],
 .app-form input[type="number"],
 .app-form input[type="date"] {
+  color: black;
+  background: transparent;
   box-sizing: border-box;
   width: 250px;
   padding: 10px;
   border: 1px solid #aaa;
-  border-radius: 4px;
+  border-radius: 40px;
 }
 
 .app-form input[type="submit"] {
   color: white;
   background-color: #454545;
-
   display: block;
   padding: 15px;
   margin: 10px 0;
@@ -36,7 +39,8 @@
 
   text-align: center;
   border: solid 1px black;
-  border-radius: 4px;
+  border-radius: 40px;
+  box-shadow: 0 0 10px black;
   cursor: pointer;
 }
 
