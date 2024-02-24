@@ -2,12 +2,18 @@
 @import url("navbar.css");
 @import url("table.css");
 
+
+
 /* Global settings for all selectors. */
 .page-container {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-image: url('bg.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .app-header,
@@ -15,6 +21,9 @@
   text-align: center;
   padding: 10px;
   color: white;
+  background-image: url('black\ bg.webp');
+  background-size: cover;
+  background-position: center;
   background-color: #454545;
   border: solid 2px black;
 }
@@ -25,6 +34,7 @@
   justify-content: center;
   align-items: center;
   flex: 1;
+  
 }
 
 /* Used to control the panels for the User Homepage. */
@@ -46,10 +56,35 @@
 .left-pane {
   margin-left: 5%;
   margin-right: 2%;
-  background-color: lightgray;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px black;
 }
 
 .right-pane {
   margin-right: 5%;
-  background-color: white;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px black;
+}
+
+/* Properties for the apply changes box in the update profile menu */
+#update-button {
+  width: 350px; 
+  height: 50px; 
+  background-color: lightgreen;
+  border-radius: 40px;
+  box-shadow: 0 0 10px black;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
+}
+
+/* Properties for the state dropdown box */
+#state{
+  background: transparent;
+  border-radius: 40px;
+  color: black;
+  border: 1px solid white;
+  font-size: 14px;
 }
