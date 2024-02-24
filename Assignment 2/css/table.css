@@ -1,6 +1,6 @@
 .app-table {
   font-size: 16px;
-  background-color: lightgray;
+  background-color: black;
   width: 80%;
   border-collapse: collapse;
   margin: 10px 0;
@@ -14,7 +14,7 @@
 }
 
 .app-table th {
-  background-color: #454545;
+  background-color: #585959;
   color: white;
   cursor: pointer;
 }
