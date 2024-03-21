@@ -69,11 +69,18 @@ app.post('/register.html',(req,res) => {
     if (!username || !password) {
       return res.status(400).json({ error: 'Username and password are required' });
     }
+    function startsWithCapitalLetter(str) {
+      return /^[A-Z]/.test(str);
+    }
 
       // Check if the user already exists in the database
     const existingUser = users.find(u => u.username === username);
+    const beginsWithCapitalLetter = users.find(u => startsWithCapitalLetter(u.password));
+    const requiredLength = users.find(u => u.username.length <= 8 && u.password.length <= 8)
     if (existingUser) {
       return res.status(400).json({ error: 'Username already exists' });
+    } else if(requiredLength){
+      return res.status(400).json({ error: 'This username or password is too short' });
     }else{
       users.push({ username, password });
       res.redirect('/login.html')
