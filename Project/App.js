@@ -14,8 +14,22 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname,'public')));
 
 app.get('/',(req,res) => {
+  res.sendFile(path.join(__dirname, 'public', 'resources', 'index.html'));
+});
+
+app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'resources', 'login.html'));
 });
+
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'resources', 'register.html'));
+});
+
+
+app.get('/index', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'resources', 'index.html'));
+});
+
 
 app.post('/login',(req,res) => {
   const {username, password} = req.body;
@@ -32,6 +46,7 @@ app.post('/login',(req,res) => {
   }
 
   res.status(200).json({ message: 'Login successful', user });
+  res.redirect('/user/user.html')
 });
 
 app.post('/register',(req,res) => {
