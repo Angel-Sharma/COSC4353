@@ -1,39 +1,31 @@
-function validateLoginForm() {
-    var username = document.getElementById("username").value.trim();
-    var password = document.getElementById("password").value.trim();
-    var isValid = true;
-    var usernameError = document.getElementById("usernameError");
-    var passwordError = document.getElementById("passwordError");
-    
-    console.log("Validation is working");
+function handleFormSubmission(event) {
+  event.preventDefault(); // Prevent default form submission
 
-    usernameError.textContent = "";
-    passwordError.textContent = "";
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
 
-    // Validate username
-    if (username === "") {
-    isValid = false;
-    usernameError.textContent = "Username is required";
+  // Send POST request to server with form data
+  fetch('/login.html', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ username, password })
+  })
+  .then(response => response.json()) // Parse the JSON response
+  .then(data => {
+    if (data.message === 'Login successful') {
+      // Redirect to user.html
+      window.location.href = '/public/resources/user/user.html';
+    } else {
+      // Handle login error (e.g., display error message)
+      console.error('Login failed:', data.error);
     }
-      // Validate password
-    if (password === "") {
-      isValid = false;
-      passwordError.textContent = "Password is required";
-    }
+  })
+  .catch(error => {
+    // Handle fetch error
+    console.error('Error:', error);
+  });
+}
 
-    return isValid;
-  }
-  function handleFormSubmission(event) {
-    // Prevent default form submission
-    event.preventDefault();
-
-    // Validate form
-    var isValidForm = validateLoginForm();
-
-    // If form is valid, redirect to another page
-    if (isValidForm) {
-      window.location.href = "user/user.html";
-    }
-  }
-
-  document.getElementById("login-form").addEventListener("submit", handleFormSubmission);
+document.getElementById('login-form').addEventListener('submit', handleFormSubmission);

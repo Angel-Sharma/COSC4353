@@ -10,30 +10,44 @@ const users = [
   // Add more users as needed
 ];
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : false }));
 app.use(express.static(path.join(__dirname,'public')));
 
 app.get('/',(req,res) => {
-  res.sendFile(path.join(__dirname, 'public', 'resources', 'index.html'));
+  res.sendFile(path.join(__dirname +'/public/resources/index.html'));
 });
 
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'resources', 'login.html'));
+app.get('/login.html', (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/resources/login.html'));
 });
 
-app.get('/register', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'resources', 'register.html'));
-});
-
-
-app.get('/index', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'resources', 'index.html'));
+app.get('/register.html', (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/resources/register.html'));
 });
 
 
-app.post('/login',(req,res) => {
-  const {username, password} = req.body;
+app.get('/index.html', (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/resources/index.html'));
+});
 
+app.get('/user.html', (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/resources/user/user.html'));
+});
+
+app.get('/update.html', (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/resources/user/update.html'));
+});
+
+app.get('/quote.html', (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/resources/quote/quote.html'));
+});
+app.get('/history.html', (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/resources/quote/history.html'));
+});
+
+app.post('/login.html',(req,res) => {
+  let username = req.body.username;
+  let password = req.body.password;
   //Check if username and password are entered
   if(!username || !password){
     return res.status(400).json({error: 'Username and Password are required'});
@@ -43,15 +57,14 @@ app.post('/login',(req,res) => {
   const user = users.find(u => u.username === username && u.password === password);
   if (!user) {
     return res.status(401).json({ error: 'Invalid username or password' });
+  } else{
+    res.redirect('/user.html')
   }
-
-  res.status(200).json({ message: 'Login successful', user });
-  res.redirect('/user/user.html')
 });
 
-app.post('/register',(req,res) => {
-  const {username, password } = req.body;
-
+app.post('/register.html',(req,res) => {
+    let username = req.body.username;  
+    let password = req.body.password;
     // Check if username and password are provided
     if (!username || !password) {
       return res.status(400).json({ error: 'Username and password are required' });
@@ -61,10 +74,12 @@ app.post('/register',(req,res) => {
     const existingUser = users.find(u => u.username === username);
     if (existingUser) {
       return res.status(400).json({ error: 'Username already exists' });
+    }else{
+      users.push({ username, password });
+      res.redirect('/login.html')
     }
 
-    users.push({ username, password });
-    res.status(201).json({ message: 'Registration successful' });
+
 });
 
 
