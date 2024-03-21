@@ -14,4 +14,5 @@ Before running the application, make sure you have Node.js and npm (Node Package
 To install the dependencies, navigate to the project directory in your terminal and run:
 
 ```bash
-npm install express body-parser
+npm install express body-parser express-session
+```

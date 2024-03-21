@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="../css/styles.css" />
-   <!-- <script src="loginVal.js"></script> -->
+    <!-- <script src="loginVal.js"></script> -->
     <title>Login</title>
   </head>
 
@@ -14,8 +14,8 @@
         <!-- NOTE: Need to update from relative paths to endpoints. -->
         <nav class="app-navbar">
           <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./register.html">Register</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/register">Register</a></li>
           </ul>
         </nav>
       </header>
@@ -24,18 +24,30 @@
         <h1>Account Login</h1>
 
         <!-- Login Form - validated in html -->
-        <form id="login-form" class="app-form" action="/login.html" method="POST">
+        <form id="login-form" class="app-form" action="/login" method="POST">
           <div class="form-fields">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Username" required />
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+              required
+            />
             <br />
-            <span id="usernameError" style="color: red;"></span>
+            <span id="usernameError" style="color: red"></span>
             <br />
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Password" required />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
             <br />
-            <span id="passwordError" style="color: red;"></span>
+            <span id="passwordError" style="color: red"></span>
             <br />
           </div>
 
@@ -51,11 +63,10 @@
 
           <!-- NOTE: Need to update from relative paths to endpoints. -->
           <p class="form-caption">
-            Not a member? <a href="./register.html">Register now!</a>
+            Not a member? <a href="/register">Register now!</a>
           </p>
         </form>
       </main>
-
 
       <footer class="app-footer">Group 8 - COSC4353-12771</footer>
     </div>
