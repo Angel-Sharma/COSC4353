@@ -6,6 +6,36 @@
     <!-- NOTE: Need to update from relative paths to endpoints. -->
     <link rel="stylesheet" href="../../css/styles.css" />
     <title>User - Home</title>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/api/user/profile")
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error("Network response was not ok.");
+          })
+          .then((user) => {
+            console.log("Obtained userData");
+            document.getElementById("user-right-pane").innerHTML = `
+          <h2>User Profile</h2>
+          <p><strong>Full Name:</strong> ${user.fullname}</p>
+          <p><strong>Address 1:</strong> ${user.address1}</p>
+          <p><strong>Address 2:</strong> ${user.address2}</p>
+          <p><strong>City:</strong> ${user.city}</p>
+          <p><strong>Zipcode:</strong> ${user.zipcode}</p>
+          <p><strong>State:</strong> ${user.state}</p>
+        `;
+          })
+          .catch((error) =>
+            console.error(
+              "There was a problem with the fetch operation:",
+              error
+            )
+          );
+      });
+    </script>
   </head>
 
   <body id="user-homepage-body" class="app-body">
@@ -14,11 +44,11 @@
         <!-- NOTE: Need to update from relative paths to endpoints. -->
         <nav class="app-navbar">
           <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="./user.html">Profile</a></li>
-            <li><a href="./update.html">Update Profile</a></li>
-            <li><a href="../quote/quote.html">Create Quote</a></li>
-            <li><a href="../quote/history.html">Quote History</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/user">Profile</a></li>
+            <li><a href="/user/update">Update Profile</a></li>
+            <li><a href="/quote">Create Quote</a></li>
+            <li><a href="/quote/history">Quote History</a></li>
           </ul>
         </nav>
       </header>
