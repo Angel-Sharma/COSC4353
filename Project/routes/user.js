@@ -1,13 +1,14 @@
-const { users } = require("../defaults");
 const User = require("../models/user");
 
 // Processes GET requests to the `/api/user/profile` route.
-function get_profile(req, res) {
+function get_profile(db, req, res) {
   const username = req.session.user.username;
-  if (!req.session.user || !username || !users[username]) {
+  const user = db.get_user(username);
+
+  if (!req.session.user || !username || !user) {
     res.status(401).json({ error: "Not authenticated" });
   } else {
-    res.status(200).json(users[username]);
+    res.status(200).json(user);
   }
 }
 
@@ -22,7 +23,7 @@ function get_update(req, res, html_path) {
 }
 
 // Processes POST requests to the `/user/update` route.
-function post_update(req, res) {
+function post_update(db, req, res) {
   if (!req.session.user || !req.session.user.username) {
     return res.status(400).json({ error: "User has not authenticated." });
   }
@@ -41,20 +42,15 @@ function post_update(req, res) {
   }
 
   // Check if the user exists, this would normally be sent to the backend.
-  // TODO: Backend lookup.
-  if (!users[username]) {
+  const user = db.get_user(username);
+  if (!user) {
     return res.status(404).json({ error: "User profile not found" });
   }
 
   // Updates the user profile information.
-  // TODO: This will be a INSERT / UPDATE to backend.
-  users[username] = new User(
-    fullname,
-    address1,
-    address2,
-    city,
-    zipcode,
-    state
+  db.update_user(
+    username,
+    new User(fullname, address1, address2, city, zipcode, state)
   );
 
   // Redirect to the user profile.
