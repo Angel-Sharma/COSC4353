@@ -5,6 +5,31 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="../../css/styles.css" />
     <title>Quote - Create</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/api/user/profile")
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error("Network response was not ok.");
+          })
+          .then((user) => {
+            if (user.address2) {
+              user.address2 = ` ${user.address2}`;
+            }
+
+            const fullAddress = `${user.address1}${user.address2}, ${user.city}, ${user.state} ${user.zipcode}`;
+            document.getElementById("delivery-address").value = fullAddress;
+          })
+          .catch((error) =>
+            console.error(
+              "There was a problem with the fetch operation:",
+              error
+            )
+          );
+      });
+    </script>
   </head>
 
   <body id="quote-body" class="app-body">

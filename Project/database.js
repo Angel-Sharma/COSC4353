@@ -19,8 +19,10 @@ let USERS = {
 // Temporary values, these will exist within database later.
 // Quote data.
 let QUOTES = {
-  1: new Quote(1, 5.0, "1234 Some St.", "2024-03-35", 3.01, 200),
-  2: new Quote(2, 3.0, "4321 Some St.", "2024-03-35", 3.21, 900),
+  user1: {
+    1: new Quote(1, 5.0, "1234 Some St.", "2024-03-25", 3.01, 200),
+    2: new Quote(2, 3.0, "4321 Some St.", "2024-03-26", 3.21, 900),
+  },
 };
 
 class Database {
@@ -41,8 +43,13 @@ class Database {
   }
 
   // This will query the database (backend) once hooked up to get the quote data.
-  get_quote(quote_id) {
-    return QUOTES[quote_id];
+  get_quote(username, quote_id) {
+    return QUOTES[username][quote_id];
+  }
+
+  // This will query the database (backend) once hooked up to get the historical quote data.
+  get_history(username) {
+    return QUOTES[username];
   }
 
   // INSERT / Create

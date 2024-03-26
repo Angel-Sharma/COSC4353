@@ -1,7 +1,7 @@
 const User = require("../models/user");
 
 // Processes GET requests to the `/api/user/profile` route.
-function get_profile(db, req, res) {
+function api_get_user(db, req, res) {
   const username = req.session.user.username;
   const user = db.get_user(username);
 
@@ -58,7 +58,7 @@ function post_update(db, req, res) {
 }
 
 module.exports = {
-  get_profile,
+  api_get_user,
   get_user,
   get_update,
   post_update,

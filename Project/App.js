@@ -11,14 +11,24 @@ const {
   post_update,
   get_update,
   get_user,
-  get_profile,
+  api_get_user,
 } = require("./routes/user");
-const { get_quote, post_quote, get_history } = require("./routes/quote");
+const {
+  api_get_history,
+  get_quote,
+  post_quote,
+  get_history,
+} = require("./routes/quote");
 
 // Globals
 const app = express();
 const db = new Database();
 const PORT = 3000; // Port number used to connect to the application.
+const nologin_user = "user1";
+const nologin = process.argv.includes("--nologin");
+if (nologin) {
+  console.log(`Running with '--nologin', default user: ${nologin_user}`);
+}
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -42,7 +52,12 @@ app.get("/index.html", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-  res.sendFile(PATHS.get("LOGIN"));
+  if (nologin) {
+    req.session.user = { username: nologin_user };
+    res.redirect("/user");
+  } else {
+    res.sendFile(PATHS.get("LOGIN"));
+  }
 });
 
 app.get("/register", (req, res) => {
@@ -66,17 +81,24 @@ app.get("/quote/history", checkAuth, (req, res) => {
 });
 
 app.get("/api/user/profile", (req, res) => {
-  get_profile(db, req, res);
+  api_get_user(db, req, res);
+});
+
+app.get("/api/quote/history", (req, res) => {
+  api_get_history(db, req, res);
 });
 
 app.post("/login", (req, res) => {
   let username = req.body.username;
   let password = req.body.password;
   //Check if username and password are entered
-  if (!username || !password) {
+  if (!nologin && (!username || !password)) {
     return res
       .status(400)
       .json({ error: "Username and Password are required" });
+  } else if (nologin) {
+    username = nologin_user;
+    password = "password1";
   }
 
   // check if username and password are correct
