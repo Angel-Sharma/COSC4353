@@ -9,6 +9,15 @@ class User {
     this.zipcode = zipcode;
     this.state = state;
   }
+
+  get fullAddress() {
+    let address2 = this.address2;
+    if (this.address2) {
+      address2 = ` ${this.address2}`;
+    }
+
+    return `${this.address1}${address2}, ${this.city}, ${this.state} ${this.zipcode}`;
+  }
 }
 
 module.exports = User;

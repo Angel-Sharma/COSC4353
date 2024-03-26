@@ -24,11 +24,12 @@
               const row = tableBody.insertRow();
 
               // Create cells and append them to the row
-              row.insertCell().textContent = `$${quote.gallons.toFixed(2)}`;
+              const cost = quote.gallons * quote.price;
+              row.insertCell().textContent = `${quote.gallons.toFixed(2)}`;
               row.insertCell().textContent = quote.address;
               row.insertCell().textContent = quote.date;
               row.insertCell().textContent = `$${quote.price.toFixed(2)}`;
-              row.insertCell().textContent = `$${quote.amount.toFixed(2)}`;
+              row.insertCell().textContent = `$${cost.toFixed(2)}`;
             });
           })
           .catch((error) =>

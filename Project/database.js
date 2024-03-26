@@ -18,11 +18,16 @@ let USERS = {
 
 // Temporary values, these will exist within database later.
 // Quote data.
+const user1_addr = "1234 Some St., Houston, TX 77002";
 let QUOTES = {
   user1: {
-    1: new Quote(1, 5.0, "1234 Some St.", "2024-03-25", 3.01, 200),
-    2: new Quote(2, 3.0, "4321 Some St.", "2024-03-26", 3.21, 900),
+    1: new Quote(1, 5.0, user1_addr, "2024-03-25", 3.01),
+    2: new Quote(2, 3.0, user1_addr, "2024-03-26", 3.21),
   },
+};
+
+const PRICE = {
+  price: "3.50",
 };
 
 class Database {
@@ -44,12 +49,25 @@ class Database {
 
   // This will query the database (backend) once hooked up to get the quote data.
   get_quote(username, quote_id) {
+    if (!(username in QUOTES)) {
+      QUOTES[username] = {};
+    }
+
     return QUOTES[username][quote_id];
   }
 
   // This will query the database (backend) once hooked up to get the historical quote data.
   get_history(username) {
+    if (!(username in QUOTES)) {
+      QUOTES[username] = {};
+    }
+
     return QUOTES[username];
+  }
+
+  // This will query the database (backend) once hooked up to get the price data.
+  get_price() {
+    return PRICE;
   }
 
   // INSERT / Create
@@ -74,13 +92,17 @@ class Database {
   }
 
   // This will insert into the database (backend) once hooked up to set the quote data.
-  insert_quote(quote_id, quote) {
-    if (quote_id in QUOTES) {
+  insert_quote(username, quote) {
+    if (!(username in QUOTES)) {
+      QUOTES[username] = {};
+    }
+
+    if (quote.quote_id in QUOTES) {
       // NOTE: Throw an error? It already exists.
       return;
     }
 
-    QUOTES[quote_id] = quote;
+    QUOTES[username][quote.quote_id] = quote;
   }
 
   // UPDATE

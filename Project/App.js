@@ -15,6 +15,7 @@ const {
 } = require("./routes/user");
 const {
   api_get_history,
+  api_get_price,
   get_quote,
   post_quote,
   get_history,
@@ -86,6 +87,10 @@ app.get("/api/user/profile", (req, res) => {
 
 app.get("/api/quote/history", (req, res) => {
   api_get_history(db, req, res);
+});
+
+app.get("/api/quote/price", (req, res) => {
+  api_get_price(db, req, res);
 });
 
 app.post("/login", (req, res) => {
