@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="../../css/styles.css" />
     <title>Quote - History</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/api/quote/history")
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error("Network response was not ok.");
+          })
+          .then((quotes) => {
+            const tableBody = document
+              .getElementById("history-table")
+              .getElementsByTagName("tbody")[0];
+
+            // Iterate over each quote and add it to the table
+            Object.values(quotes).forEach((quote) => {
+              const row = tableBody.insertRow();
+
+              // Create cells and append them to the row
+              const cost = quote.gallons * quote.price;
+              row.insertCell().textContent = `${quote.gallons.toFixed(2)}`;
+              row.insertCell().textContent = quote.address;
+              row.insertCell().textContent = quote.date;
+              row.insertCell().textContent = `$${quote.price.toFixed(2)}`;
+              row.insertCell().textContent = `$${cost.toFixed(2)}`;
+            });
+          })
+          .catch((error) =>
+            console.error(
+              "There was a problem with the fetch operation:",
+              error
+            )
+          );
+      });
+    </script>
   </head>
 
   <body id="quote-history-body" class="app-body">
@@ -38,13 +73,13 @@
 
           <!-- Populated by the application. -->
           <tbody>
-            <tr>
+            <!-- <tr>
               <td>100</td>
               <td>4434 University Drive Houston, TX 77204</td>
               <td>2024-02-19</td>
               <td>$3.00</td>
               <td>$300.00</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </main>

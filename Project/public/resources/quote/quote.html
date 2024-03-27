@@ -5,6 +5,57 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="../../css/styles.css" />
     <title>Quote - Create</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", async function () {
+        try {
+          // Fetch user profile data.
+          let response = await fetch("/api/user/profile");
+          if (!response.ok) {
+            throw new Error("Network response was not ok for user profile.");
+          }
+          let user = await response.json();
+
+          // Optional address2 handler.
+          if (user.address2) {
+            user.address2 = ` ${user.address2}`;
+          }
+
+          // Construct full address.
+          const fullAddress = `${user.address1}${user.address2}, ${user.city}, ${user.state} ${user.zipcode}`;
+          document.getElementById("address").value = fullAddress;
+
+          // Fetch quote price.
+          response = await fetch("/api/quote/price");
+          if (!response.ok) {
+            throw new Error("Network response was not ok for quote price.");
+          }
+          let quotePrice = await response.json();
+
+          // Update price in the form.
+          const priceField = document.getElementById("price");
+          priceField.value = quotePrice.price;
+
+          // Listen for changes in gallons requested and calculate the new amount due.
+          document
+            .getElementById("gallons")
+            .addEventListener("input", function () {
+              const gallonsRequested = parseFloat(this.value);
+              const pricePerGallon = parseFloat(priceField.value);
+              const amountDueField = document.getElementById("cost");
+
+              // Ensure that it is a number after converting to a float.
+              if (!isNaN(gallonsRequested) && !isNaN(pricePerGallon)) {
+                const amountDue = gallonsRequested * pricePerGallon;
+                amountDueField.value = amountDue.toFixed(2);
+              } else {
+                amountDueField.value = "0.0";
+              }
+            });
+        } catch (error) {
+          console.error("There was a problem with the fetch operation:", error);
+        }
+      });
+    </script>
   </head>
 
   <body id="quote-body" class="app-body">
@@ -35,15 +86,15 @@
         >
           <div class="form-fields">
             <label for="gallons">Gallons Requested:</label>
-            <input type="number" id="gallons" name="galons" min="0.0" />
+            <input type="number" id="gallons" name="gallons" min="0.0" />
             <br />
 
             <!-- This is populated by the application and cannot be modified. -->
-            <label for="delivery-address">Delivery Address:</label>
+            <label for="address">Delivery Address:</label>
             <input
               type="text"
-              id="delivery-address"
-              name="delivery-address"
+              id="address"
+              name="address"
               width="100"
               maxlength="100"
               value="COMES FROM PROFILE"
@@ -51,13 +102,8 @@
             />
             <br />
 
-            <label for="delivery-date">Delivery Date:</label>
-            <input
-              type="date"
-              id="delivery-date"
-              name="delivery-date"
-              width="100"
-            />
+            <label for="date">Delivery Date:</label>
+            <input type="date" id="date" name="date" width="100" />
             <br />
 
             <!-- This is populated by the application and cannot be modified. -->
@@ -72,11 +118,11 @@
             <br />
 
             <!-- This is populated by the application and cannot be modified. -->
-            <label for="amount-due">Total Amount Due:</label>
+            <label for="cost">Total Amount Due:</label>
             <input
               type="number"
-              id="amount-due"
-              name="amount-due"
+              id="cost"
+              name="cost"
               value="0.0"
               disabled="disabled"
             />
